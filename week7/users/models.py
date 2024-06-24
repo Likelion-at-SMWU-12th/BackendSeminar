@@ -3,10 +3,6 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, UserManager as DjangoUserManger
 # Create your models here.
 
-class UserInfo(models.Model):
-    phone_sub = models.CharField(verbose_name='보조 전화번호', max_length=11)
-    user = models.ForeignKey(to='User', on_delete=models.CASCADE) # User을 Foreign Key로
-
 class UserManager(DjangoUserManger):
     def _create_user(self, username, email, password, **extra_fields):
         if not email: #이메일 유효성 검사
@@ -29,4 +25,3 @@ class UserManager(DjangoUserManger):
 class User(AbstractUser):
     phone = models.CharField(verbose_name='전화번호', max_length=11)
     objects = UserManager()
-
