@@ -7,6 +7,34 @@ from .models import Post
 from .forms import PostBasedForm, PostModelForm, PostDetailForm, PostCreateForm, PostUpdateForm
 from .serializers import PostModelSerializer
 
+
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+
+@api_view(['GET'])
+def calculator(request):
+    num1=request.GET.get('num1', 0) # 기본값 0
+    num2=request.GET.get('num2', 0) # 기본값 0
+    operator=request.GET.get('operator') # 없으면 Null
+
+    if operator == '+':
+        result = int(num1) + int(num2)
+    elif operator == '-':
+        result = int(num1) - int(num2)
+    elif operator == '*':
+        result = int(num1) * int(num2)
+    elif operator == '/':
+        result = int(num1) / int(num2)
+    else:
+        result = 0
+
+    # 사용된 연산자와 결과를 JSON 형식{'키' : '값'}으로 반환
+    data = {
+        'operator' : operator,
+        'result' : result
+    }
+    return Response(data)
+
 class PostModelViewSet(ModelViewSet):
     queryset=Post.objects.all()
     serializer_class=PostModelSerializer
