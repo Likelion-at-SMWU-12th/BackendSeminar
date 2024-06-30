@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'posts',
     'users',
     'accounts',
-    'rest_framwork',
+    'rest_framework',
 ]
 
 AUTH_USER_MODEL = 'users.User'
