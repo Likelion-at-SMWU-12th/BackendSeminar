@@ -1,4 +1,4 @@
-#!/Users/won/Desktop/likelion/KimWonHee/week7/myvenv/bin/python3
+#!/Users/leeseohyun02/Desktop/LikeLion/seminar/BackendSeminar/week7/myvenv/bin/python3.12
 # -*- coding: utf-8 -*-
 import re
 import sys
