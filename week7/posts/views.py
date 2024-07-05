@@ -29,6 +29,7 @@ class PostModelViewSet(ModelViewSet):
     
     def get_permissions(self):
         action = self.action
+        permission_classes = []
         if action == 'list' :
             permission_classes = [AllowAny]
         elif action == 'create':
