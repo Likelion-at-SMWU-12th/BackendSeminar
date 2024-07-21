@@ -1,7 +1,6 @@
 package com.example.crud.post;
 
 public class PostDto {
-    public String toString;
     private String title;
     private String content;
     private String writer;
