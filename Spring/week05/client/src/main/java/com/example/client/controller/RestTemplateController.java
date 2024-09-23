@@ -17,9 +17,6 @@ import java.util.List;
 @RequestMapping("/rest-template")
 public class RestTemplateController {
     private static final Logger log = LoggerFactory.getLogger(WebClientController.class);
-    private String getSlowServiceUri() {
-        return "http://localhost:9090/api/v1/slow"; 
-    }
 
     private final RestTemplateService restTemplateService;
 
@@ -55,7 +52,7 @@ public class RestTemplateController {
     @GetMapping("/tweets-blocking")
     public List<Tweet> getTweetsBlocking() {
         log.info("Starting BLOCKING Controller!");
-        final String uri = getSlowServiceUri();
+        final String uri = "http://localhost:9090/api/v1/slow";
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<List<Tweet>> response = restTemplate.exchange(
